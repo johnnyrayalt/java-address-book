@@ -53,6 +53,7 @@ public class App {
             String mailingAddress = request.queryParams("mailingAddress");
             String emailAddress = request.queryParams("emailAddress");
             Entry newEntry = new Entry(name, phoneNumber, mailingAddress, emailAddress);
+            entryDao.add(newEntry);
             response.redirect("/");
             return null;
         }, new HandlebarsTemplateEngine());
@@ -62,7 +63,7 @@ public class App {
             int idOfPostToFind = Integer.parseInt(request.params("id"));
             Entry foundEntry = entryDao.findById(idOfPostToFind);
             model.put("entry", foundEntry);
-            return new ModelAndView(model, "entry-form.hbs");
+            return new ModelAndView(model, "entry-detail.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/entries/:id/update", (request, response) -> {

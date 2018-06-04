@@ -1,0 +1,28 @@
+{{#partial "content" }}
+
+    {{#if editEntry}}
+        <h1>EDIT THIS ENTRY</h1>
+        <form action="/entries/{{editEntry.id}}" method="post">
+            <label for="name">Edit Name</label><br>
+            <input id="name" name="name" type="text" value="{{editEntry.name}}"><br>
+
+    {{else}}
+        <h1>Add an Entry</h1>
+            <form action="/entries" method="post">
+                <label for="name">Name</label><br>
+                <input id="name" name="name" type="text"><br><br>
+                <label for="phoneNumber">phone Number</label><br>
+                <input id="phoneNumber" name="phoneNumber" type="text"><br><br>
+                <label for="mailingAddress">mailing Address</label><br>
+                <input id="mailingAddress" name="mailingAddress" type="text"><br><br>
+                <label for="emailAddress">email Address</label><br>
+                <input id="emailAddress" name="emailAddress" type="text"><br><br>
+
+
+    {{/if}}
+        <button type="submit" class="btn btn-danger">Go!</button>
+    </form>
+
+{{/partial}}
+
+{{> layout.hbs}}

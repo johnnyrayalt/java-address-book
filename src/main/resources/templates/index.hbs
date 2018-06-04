@@ -1,0 +1,15 @@
+{{#partial "content"}}
+
+    <h1>List of Address Book Entries</h1>
+
+    {{#if entries}}
+        {{#each entries}}
+            <p>Entry:</p>
+            <p>{{ name }} <a href="/entries/{{id}}">See entry</a></p>
+        {{/each}}
+    {{else}}
+        <p>No entries!</p>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}
